@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
+import SubirFotos from './SubirFotos';
 
 
 class AccesoGoogle extends Component {
@@ -36,6 +37,7 @@ class AccesoGoogle extends Component {
                     <div>
                       <img width="200px" height="200px" src={this.state.user.photoURL} alt={this.state.user.displayName}/>
                       <p>{this.state.user.displayName}</p>
+                      <SubirFotos />
                        <button onClick={this.logOut}>Cerrar Sesion </button>
                      </div>
                 )
