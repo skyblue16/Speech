@@ -8,7 +8,7 @@ import registerServiceWorker from './registerServiceWorker';
 firebase.initializeApp({
     apiKey: "AIzaSyBY7B2RndygRPN880yv-G7DyWdIxx5CX90",
     authDomain: "speech-27653.firebaseapp.com",
-    databaseURL: "https://speech-27653.firebaseio.com",
+    databaseURL: "https://speech-27653.firebaseio.com/",
     projectId: "speech-27653",
     storageBucket: "speech-27653.appspot.com",
     messagingSenderId: "354045762381"
