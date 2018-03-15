@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
+
+
 class SubirFotos extends Component {
     constructor(){
         super();
@@ -12,7 +14,7 @@ class SubirFotos extends Component {
 
     loadPhoto(event){
        const file = event.target.files[0];
-       const storageRef = firebase.storage().ref(`/photos/${file.name}`);
+       const storageRef = firebase.storage().ref(`/photo/${file.name}`);
        const tarea = storageRef.put(file)
 
        tarea.on('state_changed', snapshot => {
