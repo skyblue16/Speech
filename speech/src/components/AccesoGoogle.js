@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
 import SubirFotos from './SubirFotos';
+import {Button} from 'react-materialize'
 
 
 class AccesoGoogle extends Component {
@@ -69,7 +70,8 @@ class AccesoGoogle extends Component {
                       <img width="200px" height="200px" src={this.state.user.photoURL} alt={this.state.user.displayName}/>
                       <p>{this.state.user.displayName}</p>
                       <SubirFotos />
-                       <button onClick={this.logOut}>Cerrar Sesion </button>
+                       <Button waves='light' onClick={this.logOut}>Cerrar Sesion </Button>
+                       <Button waves='light'>button</Button>
                        <SubirFotos onUpload={ this.loadPhoto  } /> 
                        { this.state.pictures.map(picture => (
                                <div>
