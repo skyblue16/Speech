@@ -16,7 +16,7 @@ class SubirFotos extends Component {
     render(){
         return (
             <div>
-              <progress value={this.state.fotovalue} max="100"/>
+              <progress value={this.state.fotosvalue} max="100"/>
               <br/>
               <input type="file" onChange={this.props.onUpload}/>
             </div>
