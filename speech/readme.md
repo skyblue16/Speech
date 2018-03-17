@@ -5,6 +5,8 @@ dependencias usadas:
 -react-webcam
 
 ***
+no logre poner el deploy, sigo en eso
+
 Puedes compartir fotos,
 tomaar una foto 
 conectarte con la API de google
