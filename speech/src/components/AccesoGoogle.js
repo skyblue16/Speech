@@ -44,7 +44,10 @@ class AccesoGoogle extends Component {
 
 
     loadPhoto(event){
-        const tarea = this.newMethod(event);
+        const file = event.target.files[0]; // para subir una foto  y queda guarda en la base de datos y en pagina
+        const storageRef = firebase.storage().ref(`/photo/${file.name}`);
+        const tarea = storageRef.put(file);
+        return tarea;
  
         tarea.on('state_changed', snapshot => { // la barra de progresso de no me fuciono
             let porcentajeProgress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -59,18 +62,12 @@ class AccesoGoogle extends Component {
                  displayName: this.state.user.displayName,
                  image: tarea.snapshot.downloadURL
              }
-             const dbref = firebase.database().ref('pictures');
+             const dbref = firebase.database().ref('pictures'); // la foto que subas, la url que tiene se guardara en firebase
              const newPicture = dbref.push();
              newPicture.set(record);
         })
      }  
 
-    newMethod(event) {// funcion para minificar mi loadPhoto
-        const file = event.target.files[0]; // para subir una foto  y queda guarda en la base de datos y en pagina
-        const storageRef = firebase.storage().ref(`/photo/${file.name}`);
-        const tarea = storageRef.put(file);
-        return tarea;
-    }
 
         renderLoginButton(){
             if (this.state.user) {
