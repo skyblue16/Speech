@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
 import SubirFotos from './SubirFotos';
-import Speech from './Speech';
+import Tomarfoto from './Tomarfoto';
 
 
 class AccesoGoogle extends Component {
@@ -100,7 +100,7 @@ class AccesoGoogle extends Component {
         return (
         <div className="App">
             {this.renderLoginButton()}
-            <Speech/>
+            <Tomarfoto />
           </div>
         );
       }

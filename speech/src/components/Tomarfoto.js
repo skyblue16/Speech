@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
 
 class Tomarfoto extends Component {
-    render(){
-        return(
-             <div>
-               <div id="camara">
-                <canvas id="canvas" width="600" height="700"></canvas>
-                <button id="snap"></button>
-            </div>
-            <video src="" id="video"></video>
-            <a href="" id="download-link"></a>
-             </div>
-        )
-    }
+    
     componentWillMount(){
         function tomafoto() {
             var video = document.getElementById('video')
@@ -51,4 +40,18 @@ class Tomarfoto extends Component {
         };
         
     }
+
+    render(){
+        return(
+             <div>
+               <div id="camara">
+                <canvas id="canvas" width="600" height="700"></canvas>
+                <button id="snap"></button>
+            </div>
+            <video src="" id="video"></video>
+             </div>
+        )
+    }
 }
+
+export default Tomarfoto;
