@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
 import SubirFotos from './SubirFotos';
-import Tomarfoto from './Tomarfoto';
+import Camara from './Tomarfoto';
+import './../App.css'
 
 
 class AccesoGoogle extends Component {
@@ -69,20 +70,23 @@ class AccesoGoogle extends Component {
             if (this.state.user) {
                 return (
                    <div>
-                     
-                      <img width="200px" height="200px" src={this.state.user.photoURL} alt={this.state.user.displayName}/>
-                      <p>{this.state.user.displayName}</p>
-                       <button waves='light' onClick={this.logOut}>Cerrar Sesion </button>
-                       <SubirFotos onUpload={ this.loadPhoto  } /> 
+                   <div className="nav-cerrar"> 
+                      <img className="img" width="100px" height="100px" src={this.state.user.photoURL} alt={this.state.user.displayName}/>
+                      <p className="nombre">{this.state.user.displayName}</p>
+                       <button className="btn" waves='light' onClick={this.logOut}>Cerrar Sesion </button>
+                       </div>
+                       <Camara />
+                       <SubirFotos onUpload={ this.loadPhoto  } />
+                       <h3>fotos subidas:</h3>
                        { this.state.pictures.map(picture => (
                                <div>
-                                 <img src={picture.image} alt=""/>
+                                 <img with="250px" height="250px" src={picture.image} alt=""/>
                                  <br/>
-                                 <img src={picture.photoURL} alt={picture.displayName}/>
+                                 <img with="100px" height="100px" src={picture.photoURL} alt={picture.displayName}/>
                                  <br/>
                                  <span>{picture.displayName}</span>
                                </div>
-                           ))} 
+                           ))}
                            
                                          
                     </div>
@@ -90,7 +94,7 @@ class AccesoGoogle extends Component {
                 )
             }else{
                 return(
-                <button onClick={this.inicio}>inicia Sesion con google</button>
+                <button class="btn" className="inicia btn" onClick={this.inicio}>inicia Sesion con google</button>
                 )
             }
    
@@ -100,7 +104,6 @@ class AccesoGoogle extends Component {
         return (
         <div className="App">
             {this.renderLoginButton()}
-            <Tomarfoto />
           </div>
         );
       }
