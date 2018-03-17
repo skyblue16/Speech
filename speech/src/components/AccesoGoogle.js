@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import firebase from 'firebase';
 import SubirFotos from './SubirFotos';
 import Camara from './Tomarfoto';
-import ChatRoom from './components/ChatRoom';
 import './../App.css'
 
 
@@ -11,20 +10,21 @@ class AccesoGoogle extends Component {
         super();
          this.state  = {
            user: null,
-           pictures: [],
+           pictures: [],//donde almacenaremos las fotos que subamos
         }
         this.inicio = this.inicio.bind(this);
-        this.logOut = this.logOut.bind(this);
-        this.loadPhoto = this.loadPhoto.bind(this);
+        this.logOut = this.logOut.bind(this);//cuando esta fuera del alcanze global 
+        this.loadPhoto = this.loadPhoto.bind(this);//a las funciones
     }
 
     componentWillMount(){//se dispara cuando el componente fue renderizado
       firebase.auth().onAuthStateChanged(user =>{
-          this.setState({ user })
+          this.setState({ user })//auth el metodo para 
       });
-      firebase.database().ref('pictures').on('child_added', snapshot => {
+      firebase.database().ref('pictures').on('child_added', snapshot => { //creo una carpeta pictures en firebase
           this.setState({ 
               pictures: this.state.pictures.concat(snapshot.val())
+              //creo una un array nuevo , sin afectar el primero con concat
           })
       })
     }
@@ -34,21 +34,19 @@ class AccesoGoogle extends Component {
         firebase.auth().signInWithPopup(provider)
           .then(results => console.log(`${results.user.email} ha iniciado sesion`))
          .catch(error => console.log(`error ${error.code}: ${error.message}`));    
-         }
+         } //iniciar sesion con la api de google
     
     logOut(){
         firebase.auth().signOut()
          .then(results => console.log(`${results.user.email} ha icerrado sesion`))
         .catch(error => console.log(`error ${error.code}: ${error.message}`)); 
-    } 
+    } // cerrar sesion 
 
 
     loadPhoto(event){
-        const file = event.target.files[0];
-        const storageRef = firebase.storage().ref(`/photo/${file.name}`);
-        const tarea = storageRef.put(file)
+        const tarea = this.newMethod(event);
  
-        tarea.on('state_changed', snapshot => {
+        tarea.on('state_changed', snapshot => { // la barra de progresso de no me fuciono
             let porcentajeProgress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             this.setState({
                 fotosvalue: porcentajeProgress
@@ -67,6 +65,13 @@ class AccesoGoogle extends Component {
         })
      }  
 
+    newMethod(event) {// funcion para minificar mi loadPhoto
+        const file = event.target.files[0]; // para subir una foto  y queda guarda en la base de datos y en pagina
+        const storageRef = firebase.storage().ref(`/photo/${file.name}`);
+        const tarea = storageRef.put(file);
+        return tarea;
+    }
+
         renderLoginButton(){
             if (this.state.user) {
                 return (
@@ -76,7 +81,6 @@ class AccesoGoogle extends Component {
                       <p className="nombre">{this.state.user.displayName}</p>
                        <button className="btn" waves='light' onClick={this.logOut}>Cerrar Sesion </button>
                        </div>
-                       <ChatRoom />
                        <Camara />
                        <SubirFotos onUpload={ this.loadPhoto  } />
                        <h3>fotos subidas:</h3>
