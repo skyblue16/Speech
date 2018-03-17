@@ -54,7 +54,7 @@ class AccesoGoogle extends Component {
          }, error => {
              console.log(error.message);
          }, () => {
-             const record = {
+             const record = { // record contiene la foto del usuario, el nombre, y la foto que subas
                  photoURL: this.state.user.photoURL,
                  displayName: this.state.user.displayName,
                  image: tarea.snapshot.downloadURL

@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 
 import Webcam from 'react-webcam';
-
+// la dependencia de react webcam
 class Camara extends Component {
     constructor(props) {
       super(props);
-      this.state = {
-        screenshot: [],
-        tab: 0
-      };
+      this.newMethod();// hice un funcion afuera para llamarla adentro
     }
     handleClick = () => {
       const screenshot = this.webcam.getScreenshot();
-      this.setState({ screenshot });
+      this.setState({ screenshot }); // al hacer click se mostrara al costado de canvas
     }
+    newMethod() {
+        this.state = {
+            screenshot: [],
+            tab: 0
+        };
+    }
+
+    // {this.state.screenshot ? <img src={this.state.screenshot} /> :null } 
+    // se pondra la foto que tomas encima de la anterior tomada
     render() {
       return (
         <div className="ajuste">

@@ -8,7 +8,9 @@ class SubirFotos extends Component {
         this.state = {
             fotosvalue: 0,
         }   
-    }
+    } 
+    // el onChange se conecta con el onupload para hacer la subida
+    // ya que esta en otro componente , lo llamo atraves de this.props
     
     render(){
         return (
