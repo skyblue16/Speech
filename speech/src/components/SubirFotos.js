@@ -7,12 +7,9 @@ class SubirFotos extends Component {
         super();
         this.state = {
             fotosvalue: 0,
-        }
-        
+        }   
     }
-
-  
-
+    
     render(){
         return (
             <div>

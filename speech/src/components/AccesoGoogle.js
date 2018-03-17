@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
 import SubirFotos from './SubirFotos';
+import Speech from './Speech';
 
 
 class AccesoGoogle extends Component {
@@ -26,17 +27,19 @@ class AccesoGoogle extends Component {
       })
     }
     inicio(){
-       const provider = new firebase.auth.GoogleAuthProvider();
-
-       firebase.auth().signInWithPopup(provider)
-         .then(results => console.log(`${results.user.email} ha iniciado sesion`))
-        .catch(error => console.log(`error ${error.code}: ${error.message}`));    
-        }
+        const provider = new firebase.auth.GoogleAuthProvider();
+ 
+        firebase.auth().signInWithPopup(provider)
+          .then(results => console.log(`${results.user.email} ha iniciado sesion`))
+         .catch(error => console.log(`error ${error.code}: ${error.message}`));    
+         }
+    
     logOut(){
         firebase.auth().signOut()
          .then(results => console.log(`${results.user.email} ha icerrado sesion`))
         .catch(error => console.log(`error ${error.code}: ${error.message}`)); 
-    }  
+    } 
+
 
     loadPhoto(event){
         const file = event.target.files[0];
@@ -66,6 +69,7 @@ class AccesoGoogle extends Component {
             if (this.state.user) {
                 return (
                    <div>
+                     
                       <img width="200px" height="200px" src={this.state.user.photoURL} alt={this.state.user.displayName}/>
                       <p>{this.state.user.displayName}</p>
                        <button waves='light' onClick={this.logOut}>Cerrar Sesion </button>
@@ -96,6 +100,7 @@ class AccesoGoogle extends Component {
         return (
         <div className="App">
             {this.renderLoginButton()}
+            <Speech/>
           </div>
         );
       }
