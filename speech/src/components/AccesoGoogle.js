@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import firebase from 'firebase';
 import SubirFotos from './SubirFotos';
 import Camara from './Tomarfoto';
+import ChatRoom from './components/ChatRoom';
 import './../App.css'
 
 
@@ -75,6 +76,7 @@ class AccesoGoogle extends Component {
                       <p className="nombre">{this.state.user.displayName}</p>
                        <button className="btn" waves='light' onClick={this.logOut}>Cerrar Sesion </button>
                        </div>
+                       <ChatRoom />
                        <Camara />
                        <SubirFotos onUpload={ this.loadPhoto  } />
                        <h3>fotos subidas:</h3>
