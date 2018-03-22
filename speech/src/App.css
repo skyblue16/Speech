@@ -46,8 +46,8 @@ margin-right: 15px;
 }
 /*chat*/
 .cabina{
-  width: 400px;
-  height: 300px;
+  width: 700px;
+  height: 400px;
   border: 2px solid black;
   overflow-y: scroll;
 }
