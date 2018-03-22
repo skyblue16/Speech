@@ -44,5 +44,11 @@ margin-right: 15px;
   padding: 20px;
   color: white;
 }
-
+/*chat*/
+.cabina{
+  width: 400px;
+  height: 300px;
+  border: 2px solid black;
+  overflow-y: scroll;
+}
 
