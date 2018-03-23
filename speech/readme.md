@@ -3,12 +3,13 @@
 dependencias usadas:
 -firebase
 -react-webcam
+-room 
 
 ***
-no logre poner el deploy, sigo en eso
 
 Puedes compartir fotos,
-tomaar una foto 
+tomar una foto,
+chat para comunicarte con el mundo
 conectarte con la API de google
 
 Como se conecta los componentes:
@@ -19,4 +20,7 @@ El componente subirFotos: hace la comunicacion con firebase para guardar las fot
 
 El componente Tomarfoto :
 Se conecta con api de getUserMedia , pero atraves de un npm , traigo los modulos hechos para usar en TomarFoto
+
+componente Chatroom :
+se conecta con con el componente de subirfotos, para poder integrarlo en un chat
 
