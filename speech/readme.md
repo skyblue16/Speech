@@ -10,7 +10,7 @@ Herramientas:
 
 
 <div align="center">
-  <img src=https://raw.githubusercontent.com/skyblue16/Speech/master/speech/public/img/descripcion.png>
+  <img src=https://github.com/skyblue16/Speech/blob/master/speech/public/img/descripcion.png>
 </div>
 ***
 
