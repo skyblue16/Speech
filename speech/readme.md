@@ -10,7 +10,7 @@ Herramientas:
 
 
 <div align="center">
-  <img src={process.env.PUBLIC_URL + '/images/descarga.jpeg'}>
+  <img src=https://raw.githubusercontent.com/skyblue16/Speech/master/speech/public/img/descripcion.png>
 </div>
 ***
 
