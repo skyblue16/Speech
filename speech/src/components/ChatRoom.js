@@ -5,6 +5,7 @@ import './../App.css'
 class Chatroom extends  Component{
     constructor(){
         super();
+        
         this.state = {
             mensaje: '',//almacena el valor del input
           mensajes: [],

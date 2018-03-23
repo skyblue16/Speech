@@ -9,7 +9,7 @@ Herramientas:
 -**React bootstrap**
 
 
-![El flujo de la pagina](speech/img/descripcion.png)
+![El flujo de la pagina](process.env.PUBLIC_URL + '/images/descarga.jpeg')
 ***
 
 Puedes compartir fotos,
