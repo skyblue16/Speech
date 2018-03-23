@@ -1,10 +1,15 @@
 #PROYECTO REACT 
 
-dependencias usadas:
--firebase
--react-webcam
--room 
+Herramientas:
 
+-**React**
+-**Firebase**
+-**CSS**
+-**React webcam**
+-**React bootstrap**
+
+
+![El flujo de la pagina](speech/img/descripcion.png)
 ***
 
 Puedes compartir fotos,

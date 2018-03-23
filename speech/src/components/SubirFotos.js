@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-
-
 class SubirFotos extends Component {
     constructor(){
         super();
