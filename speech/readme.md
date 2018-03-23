@@ -9,7 +9,9 @@ Herramientas:
 -**React bootstrap**
 
 
-![El flujo de la pagina]('public/img/descripcion.png')
+<div align="center">
+  <img src={process.env.PUBLIC_URL + '/images/descarga.jpeg'}>
+</div>
 ***
 
 Puedes compartir fotos,
