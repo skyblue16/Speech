@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Webcam from 'react-webcam';
+import ContEspejo from './ContEspejo';
 // la dependencia de react webcam
 class Camara extends Component {
     constructor(props) {
